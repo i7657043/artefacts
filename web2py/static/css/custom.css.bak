@@ -1,0 +1,58 @@
+.background {
+    background: url(../images/header.jpg) center center;
+}
+
+
+ul{ list-style-type: none; }
+
+.container-fluid .jumbotron {padding:0;}
+
+#chart_div, #chart_div2, #chart-div3. #chart_div4 {
+    max-width:80%;
+}
+
+.row-centered {
+    text-align:center;
+}
+
+.sidenav-content{
+background-color:#e6e6e6;
+    height:400px;
+    padding:5px 0 0px 20px;
+    margin:0;
+    
+
+    
+  
+}
+
+.sidenav-header{
+
+    padding:4px;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    display:block;
+    margin:10px;
+    
+}
+
+.sidenav-items{
+    text-decoration: none;
+    opacity:0.7;
+    padding:5px;
+    margin:10px;
+    background-color:#8c8c8c;
+    transition: 0.7s all;
+    
+}
+
+.sidenav-items a {
+    color:black;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+.sidenav-items:hover{
+    font-weight:bold;
+    padding:10px;
+    opacity:1;
+    transition: 0.7s all;
+}

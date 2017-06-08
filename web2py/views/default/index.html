@@ -1,0 +1,45 @@
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+
+{{block header}}
+    <header class="container-fluid background">
+      <div class="jumbotron text-center">
+        <h1 id="title_header" style="opacity:0; transition:1s all;">Domotica</h1>
+      </div>
+    </header>
+{{end}}
+
+{{block left_sidebar}}
+<div id="sidenav" class="sidenav-content" style="transition: 1s all">
+<h3 id="sidenav" class="sidenav-header" style="transition: 1s all">Navigation Menu</h3>
+     <ul>
+<li id="sidenav" class="sidenav-items" style="transition: 1s all">{{=A('Add Device', _href=URL('add_devices'))}}</li>
+<li id="sidenav" class="sidenav-items" style="transition: 1s all">{{=A('View Devices', _href=URL('view_devices'))}}</li>
+         <li role="separator" class="divider"></li> 
+<li id="sidenav" class="sidenav-items" style="transition: 1s all">{{=A('Manage Devices', _href=URL('dev_management'))}}</li>
+    </ul>
+</div>
+{{end}}
+
+{{block center}}
+<h1 id="header-title" class="text-center" style="margin-top:200px; opacity:0; transition: 1s all;">
+Welcome to our Application
+</h1>
+<h3 id="header-title" class="text-center" >
+    Hi {{=id}} 
+</h3>
+
+     <script>
+   
+ window.onload = function onload(){
+	document.getElementById("sidenav").style.opacity='1';
+     document.getElementById("title_header").style.opacity='1';
+        document.getElementById("header-title").style.opacity='1';
+     document.getElementById("header-title").style.margin='0px 0px 0px 0px';
+
+}
+    
+    
+</script>
+
+{{end}}

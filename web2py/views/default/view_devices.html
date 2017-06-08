@@ -1,0 +1,54 @@
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+
+<div class="row">
+<h1 class="page-header text-center">View Your Connected Devices Below:</h1>
+</div>
+
+
+{{for row in deviceRows:}}
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{=H3(P(A(row.device_name,_href=URL('selected_device',args=row.id))))}}
+            </div>
+            <div class="panel-body">
+                {{if row.status is "off":}}
+                {{=H4(P("Status: " + row.status))}}
+                {{else:}}
+                {{=P("Operating Temprature: " + row.device_temp)}}
+                {{=P("Internal Temprature: " + row.internal_temp)}}
+                {{=H4(P("Status: " + row.status))}}
+                {{pass}}
+            </div>
+            <div class="panel-footer">
+            </div>
+        </div>
+    </div>
+    {{block left_sidebar}}
+<div id="sidenav" class="sidenav-content" style="transition: 1s all">
+<h3 id="sidenav" class="sidenav-header" style="transition: 1s all">Navigation Menu</h3>
+     <ul>
+<li id="sidenav" class="sidenav-items" style="transition: 1s all">{{=A('Add Device', _href=URL('add_devices'))}}</li>
+
+         <li role="separator" class="divider"></li> 
+<li id="sidenav" class="sidenav-items" style="transition: 1s all">{{=A('Manage Devices', _href=URL('dev_management'))}}</li>
+    </ul>
+</div>
+{{end}}
+
+
+    {{pass}}
+    
+    
+<!--{{#=P("Current Status: " + row.status)}}-->
+     <script>
+   
+ window.onload = function onload(){
+	document.getElementById("sidenav").style.opacity='1';
+  
+
+}
+    
+    
+</script>

@@ -1,0 +1,580 @@
+timestamp: 2017-05-03T02:44:17.425457
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2017-05-03T02:44:17.477702
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2017-05-03T02:44:17.516332
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-05-03T02:44:17.551082
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2017-05-03T02:44:17.597667
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2017-05-03T02:44:17.636849
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2017-05-03T03:20:33.451102
+ALTER TABLE auth_user ADD username CHAR(128);
+timestamp: 2017-05-03T03:20:33.495251
+ALTER TABLE auth_user ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-03T03:20:33.515268
+ALTER TABLE auth_user ADD is_active CHAR(1);
+timestamp: 2017-05-03T03:20:33.549041
+ALTER TABLE auth_user ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-03T03:20:33.594960
+ALTER TABLE auth_user ADD created_on TIMESTAMP;
+timestamp: 2017-05-03T03:20:33.618147
+ALTER TABLE auth_user ADD modified_on TIMESTAMP;
+success!
+timestamp: 2017-05-03T03:20:33.689878
+ALTER TABLE auth_group ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-03T03:20:33.717770
+ALTER TABLE auth_group ADD is_active CHAR(1);
+timestamp: 2017-05-03T03:20:33.735355
+ALTER TABLE auth_group ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-03T03:20:33.759264
+ALTER TABLE auth_group ADD created_on TIMESTAMP;
+timestamp: 2017-05-03T03:20:33.784756
+ALTER TABLE auth_group ADD modified_on TIMESTAMP;
+success!
+timestamp: 2017-05-03T03:20:33.840705
+ALTER TABLE auth_membership ADD is_active CHAR(1);
+timestamp: 2017-05-03T03:20:33.858749
+ALTER TABLE auth_membership ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-03T03:20:33.881636
+ALTER TABLE auth_membership ADD created_on TIMESTAMP;
+timestamp: 2017-05-03T03:20:33.909510
+ALTER TABLE auth_membership ADD modified_on TIMESTAMP;
+timestamp: 2017-05-03T03:20:33.927254
+ALTER TABLE auth_membership ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-05-03T03:20:33.992491
+ALTER TABLE auth_permission ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-03T03:20:34.026317
+ALTER TABLE auth_permission ADD is_active CHAR(1);
+timestamp: 2017-05-03T03:20:34.047103
+ALTER TABLE auth_permission ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-05-03T03:20:34.076105
+ALTER TABLE auth_permission ADD created_on TIMESTAMP;
+timestamp: 2017-05-03T03:20:34.102346
+ALTER TABLE auth_permission ADD modified_on TIMESTAMP;
+success!
+timestamp: 2017-05-08T10:26:07.222086
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55508372d0>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512)
+);
+timestamp: 2017-05-08T10:26:07.677313
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f555012e1d0>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512)
+);
+timestamp: 2017-05-08T10:27:08.993044
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f554b7bd950>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512)
+);
+timestamp: 2017-05-08T10:28:08.528906
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5550072790>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512)
+);
+timestamp: 2017-05-08T10:34:31.817654
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5550cb8f50>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:35:08.444732
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55510bed10>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:36:08.433041
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5550a4f190>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:37:07.599526
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5550a91710>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:43:15.731313
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5553048190>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:43:34.471440
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f554bb63150>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:44:34.564802
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5550a6cb10>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:45:34.989866
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55510c4710>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:46:34.991217
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55510c1e10>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:47:34.560212
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5553048490>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:48:33.660207
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f555093d5d0>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:49:07.107911
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5550c25f90>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:49:34.648533
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f554bb1c450>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:50:36.447089
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5550811550>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:51:34.480071
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55508c0550>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:52:34.465399
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f554ba4a590>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:53:33.566856
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55508de750>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:53:36.616435
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55510c43d0>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:53:44.304725
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f554b8e7050>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:54:22.693117
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f554bb2e910>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:55:01.412178
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55500c0790>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:55:13.509814
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55500a94d0>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:56:00.961918
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f5550137450>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:56:26.649028
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f55509a3d90>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:57:04.214502
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(<gluon.validators.IS_NOT_EMPTY object at 0x7f554b964590>),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+timestamp: 2017-05-08T10:58:34.893815
+CREATE TABLE tbl_device(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_name CHAR(512),
+    first_online TIMESTAMP,
+    last_online TIMESTAMP,
+    device_owner CHAR(512),
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512)
+);
+success!
+timestamp: 2017-05-08T11:00:07.678542
+CREATE TABLE tbl_readings(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_temp CHAR(512),
+    ambient_temp CHAR(512),
+    internal_temp CHAR(512),
+    lumens CHAR(512),
+    decibels CHAR(512),
+    status CHAR(512),
+    battery CHAR(512),
+    reading_timestamp TIMESTAMP
+);
+success!
+timestamp: 2017-05-08T13:31:10.281548
+CREATE TABLE tbl_device(
+    id INT AUTO_INCREMENT NOT NULL,
+    device_name VARCHAR(512),
+    first_online DATETIME,
+    last_online DATETIME,
+    owner VARCHAR(512),
+    device_temp VARCHAR(512),
+    ambient_temp VARCHAR(512),
+    internal_temp VARCHAR(512),
+    lumens VARCHAR(512),
+    decibels VARCHAR(512),
+    status VARCHAR(512),
+    battery VARCHAR(512),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2017-05-08T13:31:10.409215
+CREATE TABLE tbl_readings(
+    id INT AUTO_INCREMENT NOT NULL,
+    device_temp VARCHAR(512),
+    ambient_temp VARCHAR(512),
+    internal_temp VARCHAR(512),
+    lumens VARCHAR(512),
+    decibels VARCHAR(512),
+    status VARCHAR(512),
+    battery VARCHAR(512),
+    timestamp DATETIME,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2017-05-08T13:37:59.864512
+ALTER TABLE tbl_readings ADD device_ident INT  , ADD INDEX device_ident__idx (device_ident), ADD FOREIGN KEY (device_ident) REFERENCES tbl_device (id) ON DELETE CASCADE;
+success!
+success!

@@ -1,0 +1,192 @@
+{{extend 'layout.html'}}
+{{block head}}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {packages: ['corechart', 'line']});
+      google.charts.setOnLoadCallback(drawBasic);
+      google.charts.setOnLoadCallback(drawBasic2);
+      google.charts.setOnLoadCallback(drawBasic3);
+      google.charts.setOnLoadCallback(drawBasic4);
+
+      function drawBasic() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Degrees C');
+
+      data.addRows([
+        [0, {{=dict1[19]['device_temp']}}],   [1, {{=dict1[18]['device_temp']}}],  [2, {{=dict1[17]['device_temp']}}],  [3, {{=dict1[16]['device_temp']}}],  [4, {{=dict1[15]['device_temp']}}],  [5, {{=dict1[14]['device_temp']}}],
+        [6, {{=dict1[13]['device_temp']}}],  [7, {{=dict1[12]['device_temp']}}],  [8, {{=dict1[11]['device_temp']}}],  [9, {{=dict1[10]['device_temp']}}],  [10, {{=dict1[9]['device_temp']}}], [11, {{=dict1[8]['device_temp']}}],
+        [12, {{=dict1[7]['device_temp']}}], [13, {{=dict1[6]['device_temp']}}], [14, {{=dict1[5]['device_temp']}}], [15, {{=dict1[4]['device_temp']}}], [16, {{=dict1[3]['device_temp']}}], [17, {{=dict1[2]['device_temp']}}],
+        [18, {{=dict1[1]['device_temp']}}], [19, {{=dict1[0]['device_temp']}}]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Time'
+        },
+        vAxis: {
+          title: 'Device Temp'
+        }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+    function drawBasic2() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Degrees C');
+
+      data.addRows([
+        [0, {{=dict2[19]['ambient_temp']}}], [1, {{=dict2[18]['ambient_temp']}}],  [2, {{=dict2[17]['ambient_temp']}}],  [3, {{=dict2[16]['ambient_temp']}}],  [4, {{=dict2[15]['ambient_temp']}}],  [5, {{=dict2[14]['ambient_temp']}}],
+        [6, {{=dict2[13]['ambient_temp']}}],  [7, {{=dict2[12]['ambient_temp']}}],  [8, {{=dict2[11]['ambient_temp']}}],  [9, {{=dict2[10]['ambient_temp']}}],  [10, {{=dict2[9]['ambient_temp']}}], [11, {{=dict2[8]['ambient_temp']}}],
+        [12, {{=dict2[7]['ambient_temp']}}], [13, {{=dict2[6]['ambient_temp']}}], [14, {{=dict2[5]['ambient_temp']}}], [15, {{=dict2[4]['ambient_temp']}}], [16, {{=dict2[3]['ambient_temp']}}], [17, {{=dict2[2]['ambient_temp']}}],
+        [18, {{=dict2[1]['ambient_temp']}}], [19, {{=dict2[0]['ambient_temp']}}]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Time'
+        },
+        vAxis: {
+          title: 'Ambient Temp'
+        }
+      };
+
+      var chart2 = new google.visualization.LineChart(document.getElementById('chart_div2'));
+
+      chart2.draw(data, options);
+    }
+    function drawBasic3() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Degrees C');
+
+      data.addRows([
+        [0, {{=dict3[19]['internal_temp']}}],   [1, {{=dict3[18]['internal_temp']}}],  [2, {{=dict3[17]['internal_temp']}}],  [3, {{=dict3[16]['internal_temp']}}],  [4, {{=dict3[15]['internal_temp']}}],  [5, {{=dict3[14]['internal_temp']}}],
+        [6, {{=dict3[13]['internal_temp']}}],  [7, {{=dict3[12]['internal_temp']}}],  [8, {{=dict3[11]['internal_temp']}}],  [9, {{=dict3[10]['internal_temp']}}],  [10, {{=dict3[9]['internal_temp']}}], [11, {{=dict3[8]['internal_temp']}}],
+        [12, {{=dict3[7]['internal_temp']}}], [13, {{=dict3[6]['internal_temp']}}], [14, {{=dict3[5]['internal_temp']}}], [15, {{=dict3[4]['internal_temp']}}], [16, {{=dict3[3]['internal_temp']}}], [17, {{=dict3[2]['internal_temp']}}],
+        [18, {{=dict3[1]['internal_temp']}}], [19, {{=dict3[0]['internal_temp']}}]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Time'
+        },
+        vAxis: {
+          title: 'Internal Temp'
+        }
+      };
+
+      var chart3 = new google.visualization.LineChart(document.getElementById('chart_div3'));
+
+      chart3.draw(data, options);
+    }
+    function drawBasic4() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Battery Drain');
+
+      data.addRows([
+        [0, {{=dict4[19]['battery']}}],   [1, {{=dict4[18]['battery']}}],  [2, {{=dict4[17]['battery']}}],  [3, {{=dict4[16]['battery']}}],  [4, {{=dict4[15]['battery']}}],  [5, {{=dict4[14]['battery']}}],
+        [6, {{=dict4[13]['battery']}}],  [7, {{=dict4[12]['battery']}}],  [8, {{=dict4[11]['battery']}}],  [9, {{=dict4[10]['battery']}}],  [10, {{=dict4[9]['battery']}}], [11, {{=dict4[8]['battery']}}],
+        [12, {{=dict4[7]['battery']}}], [13, {{=dict4[6]['battery']}}], [14, {{=dict4[5]['battery']}}], [15, {{=dict4[4]['battery']}}], [16, {{=dict4[3]['battery']}}], [17, {{=dict4[2]['battery']}}],
+        [18, {{=dict4[1]['battery']}}], [19, {{=dict4[0]['battery']}}]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Time'
+        },
+        vAxis: {
+          title: 'Battery Usage'
+        }
+      };
+
+      var chart4 = new google.visualization.LineChart(document.getElementById('chart_div4'));
+
+      chart4.draw(data, options);
+    }
+    </script>
+{{end}}
+
+
+<div class="container-fluid">
+
+<div class="row text-center">
+    <div class="col-lg-8 col-s-12" id="charts_col">
+            <div class="col-lg-12">
+                <h2 class="page-header text-center">
+                    Device Statistics
+                </h2>
+            </div>
+            <div class="col-lg-6">
+                <h3 class="page-header">
+                    Device Temperature
+                </h3>
+                <div id="chart_div"></div>
+            </div>
+
+            <div class="col-lg-6">
+                <h3 class="page-header">
+                    Ambient Temperature
+                </h3>
+                <div id="chart_div2"></div>
+            </div>
+
+
+
+
+            <div class="col-lg-6">
+                <h3 class="page-header">
+                    Internal Temperature
+                </h3>
+                <div id="chart_div3"></div>
+            </div>
+
+            <div class="col-lg-6">
+                <h3 class="page-header">
+                    Battery Usage
+                </h3>
+                <div id="chart_div4"></div>
+            </div>
+
+    </div>
+
+
+    <div class="col-lg-4 col-xs-12">
+
+        <h1 class="page-header">
+            {{=selected_device.device_name}}
+        </h1>
+
+        <div class="well text-center">
+            <ul>
+                <li>
+                    {{=P(B('First Online: ') + selected_device.first_online)}}
+                </li>
+                <li>
+                    {{=P(B('Current Temp: ') + selected_device.device_temp)}}
+                </li>
+                <li>
+                    {{=P(B('Ambient Temp: ') + selected_device.ambient_temp)}}
+                </li>
+                <li>
+                    {{=P(B('Battery Level: ') + selected_device.battery)}}
+                </li>
+
+                <li>{{=P(B('Status: ') + selected_device.status)}}</li>
+            </ul>
+        </div>
+        <h4>
+           {{=A("Back to Devices",_href=URL('view_devices',args=auth.user.id))}}
+        </h4>
+    </div>
+</div>
+</div>

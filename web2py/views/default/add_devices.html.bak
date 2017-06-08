@@ -1,0 +1,40 @@
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+
+<h1 class="page-header">Add a New Device</h1>
+
+<div class="row row-centered">
+    <div class="col-xs-6 col-centered">
+        <div class="thumbnail">
+            
+        {{=add_form}}
+        </div>
+    </div>
+</div>
+
+{{block left_sidebar}}
+<div id="sidenav" class="sidenav-content" style="transition: 1s all">
+<h3 id="sidenav" class="sidenav-header" style="transition: 1s all">Navigation Menu</h3>
+     <ul>
+<li id="sidenav" class="sidenav-items" style="transition: 1s all">{{=A('Add Device', _href=URL('add_devices'))}}</li>
+<li id="sidenav" class="sidenav-items" style="transition: 1s all">{{=A('View Devices', _href=URL('view_devices'))}}</li>
+         <li role="separator" class="divider"></li> 
+<li id="sidenav" class="sidenav-items" style="transition: 1s all">{{=A('Manage Devices', _href=URL('dev_management'))}}</li>
+    </ul>
+</div>
+
+
+    
+{{end}}
+
+
+     <script>
+   
+ window.onload = function onload(){
+	document.getElementById("sidenav").style.opacity='1';
+  
+
+}
+    
+    
+</script>

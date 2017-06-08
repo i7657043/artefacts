@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+<h1>This is the default/dev_management.html template</h1>
+<p>
+   {{=grid}} 
+</p>
